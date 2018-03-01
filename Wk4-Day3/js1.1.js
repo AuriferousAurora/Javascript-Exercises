@@ -88,8 +88,8 @@ var app1Social = document.createElement('div');
 app1.appendChild(app1Social);
 app1Social.style.backgroundColor = "orange";
 app1Social.style.width = "100%";
-app1Social.style.height = "20px";
-app1Social.style.padding = "10px";
+app1Social.style.height = "auto";
+app1Social.style.padding = "5px";
 app1Social.style.clear = "both";
 
 var comments1 = document.createElement('p');
@@ -138,8 +138,8 @@ var app2Social = document.createElement('div');
 app2.appendChild(app2Social);
 app2Social.style.backgroundColor = "orange";
 app2Social.style.width = "100%";
-app2Social.style.height = "20px";
-app2Social.style.padding = "10px";
+app2Social.style.height = "auto";
+app2Social.style.padding = "5px";
 app2Social.style.clear = "both";
 
 var comments2 = document.createElement('p');
