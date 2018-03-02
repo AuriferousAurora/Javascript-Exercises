@@ -170,8 +170,9 @@ picContainer.style.height = "900px";
 picContainer.style.marginTop = "30px";
 picContainer.style.marginLeft = "7%";
 picContainer.style.marginRight = "10%";
+picContainer.style.paddingRight = "0px";
 
-picContainer.style.backgroundColor = "lightpink";
+picContainer.style.backgroundColor = "black";
 
 /* First Row */
 
@@ -196,8 +197,17 @@ secondRow.style.width = "100%";
 var thirdRow = document.createElement('div');
 thirdRow.classList.add('row');
 picContainer.appendChild(thirdRow);
-thirdRow.style.backgroundColor = "rgba(255, 0, 0xs, 0.5)";
+thirdRow.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
 thirdRow.style.height = "300px";
 thirdRow.style.width = "100%";
+
+/* Footer */
+
+var footer = document.createElement('footer');
+body.appendChild(footer);
+footer.style.width = "100%";
+footer.style.height= "200px";
+footer.style.backgroundColor = "slategrey";
+footer.style.marginTop = "100px";
 
 
