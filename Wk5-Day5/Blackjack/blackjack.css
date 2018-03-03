@@ -22,7 +22,7 @@ label {
     margin: 15px 0px;
     padding: 20px 0px;
     background-color: aqua;
-    height: 40px;
+    height: 70px;
 }
 
 div {
@@ -36,4 +36,9 @@ div {
 
 .buttons {
     margin: 0px 10px;
+}
+
+.hand img {
+    height: 120%;
+    width: auto;
 }
