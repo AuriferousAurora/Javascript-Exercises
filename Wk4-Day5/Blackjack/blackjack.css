@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#table {
+    height: 55vh;
+    width: 75vw;
+    background-color: green;
+    border-radius: 50px;
+    margin-top: 3vmin;
+    padding: 10%;
+}
+
+label {
+    border: 2px solid red;
+    display: block;
+}
+
+.hand {
+    margin: 15px 0px;
+    padding: 20px 0px;
+    background-color: aqua;
+    height: 70px;
+}
+
+div {
+    border: 2px solid red;
+}
+
+.buttonBox {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    margin: 0px 10px;
+}
+
+.hand img {
+    height: 120%;
+    width: auto;
+}
