@@ -1,18 +1,20 @@
 
-function Card (name, value, suit, img) {
+function Card(name, value, suit, img) {
     this.name = name;
     this.value = value;
     this.suit = suit;
     this.img = img;
 };
 
-var suit = "";
 var name = "";
+var suit = "";
 var img = "";
 var imgAcro = "";
 var path = "Card-Images/";
 
-function Deck () {
+
+// Builds deck of card objects, stores them in array, and returns the array.
+function Deck() {
     this.deck = [];
     for (var j = 0; j <= 3; j++) {
         if (j == 0) {
@@ -85,50 +87,48 @@ function Deck () {
                 default:
                     break;
             }
-            this.deck.push(new card(name, value, suit, img));
+            this.deck.push(new Card(name, value, suit, img));
         };
     };
    return this.deck; 
 };
 
+//Instantiation of a new deck of cards.
 var deckOne = new Deck();
-console.log(newDeck);
+// console.log(deckOne);
+
+//Draws two cards from whatever deck is passed as a parameter and returns it as an array.
+function Hand(selectedDeck) {
+    this.selectedDeck = selectedDeck.splice(0, 2);
+    return this.selectedDeck;
+};
+
+//Instantion of two new hands consisting of two cards each. Cards objects are removed from the deck passed as a parameter in the Hand function.
+var dealerHand = new Hand(deckOne);
+var playerHand = new Hand(deckOne);
+
+console.log(dealerHand);
+console.log(playerHand);
 
 
 
 
-// This function returns the images from the array 'deck' to be used in the game.
-function selectCard() {
-    // Function creates an empty array and creates a variable named 'card' that is a randomly selected number within the range of the length of the chosen deck.
-    var selectedCards =[];
-    var card = Math.floor(Math.random()*(deck.length - 1));
-    // // The generated number is stored in the array 'selectedCards'.
-    selectedCards.push(card);
-    // // If the number representing the selected card already exists in the array 'selectedCards', the function is called again so that it can choose a card that has not already been drawn.
-    if (card in selectedCards) {
-         selectCard();
-    }
-    // If the number selected corresponds with a card that has not been drawn,the url at that position in the array 'deck' is returned.
-    else {
-        // console.log(deck[card].img);
-        return deck[card].img;
-    }
-}
 
+
+// var card = Math.floor(Math.random()*(deck.length - 1));
 
 
 document.getElementById("deal-button").addEventListener("click", function() {
-    document.getElementById("dealerCardOne").src = selectCard();
-    document.getElementById("dealerCardTwo").src = selectCard();
-    document.getElementById("playerCardOne").src = selectCard();
-    document.getElementById("playerCardTwo").src = selectCard();
-    console.log(selectCard.selectCards);
+    // document.getElementById("dealerCardOne").src = dealerHand[0].img;
+    document.getElementById("dealerCardTwo").src = dealerHand[1].img;
+    document.getElementById("playerCardOne").src = playerHand[0].img;
+    document.getElementById("playerCardTwo").src = playerHand[1].img;
 });
 
-document.getElementById("hit-button").addEventListener("click", function() {
-    var hitCard = document.createElement('img');
-    // hitCard.setAttribute("src", selectCard().toString());
-    document.getElementById("player-hand").appendChild(hitCard);
-    hitCard.src = selectCard();
-});
+// document.getElementById("hit-button").addEventListener("click", function() {
+//     var hitCard = document.createElement('img');
+//     // hitCard.setAttribute("src", selectCard().toString());
+//     document.getElementById("player-hand").appendChild(hitCard);
+//     hitCard.src = selectCard();
+// });
 
