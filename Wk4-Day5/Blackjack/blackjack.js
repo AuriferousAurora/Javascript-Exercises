@@ -1,57 +1,101 @@
-var deck = [
-    { name: "Ace", value: 11, suit: "Spades", img: "Card-Images/AS.jpg" },
-    { name: "King", value: 10, suit: "Spades", img: "Card-Images/KS.jpg" },
-    { name: "Queen", value: 10, suit: "Spades", img: "Card-Images/QS.jpg" },
-    { name: "Jack", value: 10, suit: "Spades", img: "Card-Images/JS.jpg" },
-    { name: "Ten", value: 10, suit: "Spades", img: "Card-Images/10S.jpg" },
-    { name: "Nine", value: 9, suit: "Spades", img: "Card-Images/9S.jpg" },
-    { name: "Eight", value: 8, suit: "Spades", img: "Card-Images/8S.jpg" },
-    { name: "Seven", value: 7, suit: "Spades", img: "Card-Images/7S.jpg" },
-    { name: "Six", value: 6, suit: "Spades", img: "Card-Images/6S.jpg" },
-    { name: "Five", value: 5, suit: "Spades", img: "Card-Images/5S.jpg" },
-    { name: "Four", value: 4, suit: "Spades", img: "Card-Images/4S.jpg" },
-    { name: "Three", value: 3, suit: "Spades", img: "Card-Images/3S.jpg" },
-    { name: "Two", value: 2, suit: "Spades", img: "Card-Images/2S.jpg" },
-    { name: "Ace", value: 11, suit: "Hearts", img: "Card-Images/AH.jpg"},
-    { name: "King", value: 10, suit: "Hearts", img: "Card-Images/KH.jpg" },
-    { name: "Queen", value: 10, suit: "Hearts", img: "Card-Images/QH.jpg" },
-    { name: "Jack", value: 10, suit: "Hearts", img: "Card-Images/JH.jpg" },
-    { name: "Ten", value: 10, suit: "Hearts", img: "Card-Images/10H.jpg" },
-    { name: "Nine", value: 9, suit: "Hearts", img: "Card-Images/9H.jpg" },
-    { name: "Eight", value: 8, suit: "Hearts", img: "Card-Images/8H.jpg"},
-    { name: "Seven", value: 7, suit: "Hearts", img: "Card-Images/7H.jpg" },
-    { name: "Six", value: 6, suit: "Hearts", img: "Card-Images/6H.jpg" },
-    { name: "Five", value: 5, suit: "Hearts", img: "Card-Images/5H.jpg" },
-    { name: "Four", value: 4, suit: "Hearts", img: "Card-Images/4H.jpg" },
-    { name: "Three", value: 3, suit: "Hearts", img: "Card-Images/3H.jpg" },
-    { name: "Two", value: 2, suit: "Hearts", img: "Card-Images/2H.jpg" },
-    { name: "Ace", value: 11, suit: "Clubs", img: "Card-Images/AC.jpg" },
-    { name: "King", value: 10, suit: "Clubs", img: "Card-Images/KC.jpg" },
-    { name: "Queen", value: 10, suit: "Clubs", img: "Card-Images/QC.jpg" },
-    { name: "Jack", value: 10, suit: "Clubs", img: "Card-Images/JC.jpg" },
-    { name: "Ten", value: 10, suit: "Clubs", img: "Card-Images/10C.jpg" },
-    { name: "Nine", value: 9, suit: "Clubs", img: "Card-Images/9C.jpg" },
-    { name: "Eight", value: 8, suit: "Clubs", img: "Card-Images/8C.jpg" },
-    { name: "Seven", value: 7, suit: "Clubs", img: "Card-Images/7C.jpg" },
-    { name: "Six", value: 6, suit: "Clubs", img: "Card-Images/6C.jpg" },
-    { name: "Five", value: 5, suit: "Clubs", img: "Card-Images/5C.jpg" },
-    { name: "Four", value: 4, suit: "Clubs", img: "Card-Images/4C.jpg" },
-    { name: "Three", value: 3, suit: "Clubs", img: "Card-Images/3C.jpg" },
-    { name: "Two", value: 2, suit: "Clubs", img: "Card-Images/2C.jpg" },
-    { name: "Ace", value: 11, suit: "Diamonds", img: "Card-Images/AD.jpg" },
-    { name: "King", value: 10, suit: "Diamonds", img: "Card-Images/KD.jpg" },
-    { name: "Queen", value: 10, suit: "Diamonds", img: "Card-Images/QD.jpg" },
-    { name: "Jack", value: 10, suit: "Diamonds", img: "Card-Images/JD.jpg" },
-    { name: "Ten", value: 10, suit: "Diamonds", img: "Card-Images/10D.jpg" },
-    { name: "Nine", value: 9, suit: "Diamonds", img: "Card-Images/9D.jpg" },
-    { name: "Eight", value: 8, suit: "Diamonds", img: "Card-Images/8D.jpg" },
-    { name: "Seven", value: 7, suit: "Diamonds", img: "Card-Images/7D.jpg" },
-    { name: "Six", value: 6, suit: "Diamonds", img: "Card-Images/6D.jpg" },
-    { name: "Five", value: 5, suit: "Diamonds", img: "Card-Images/5D.jpg" },
-    { name: "Four", value: 4, suit: "Diamonds", img: "Card-Images/4D.jpg" },
-    { name: "Three", value: 3, suit: "Diamonds", img: "Card-Images/3D.jpg" },
-    { name: "Two", value: 2, suit: "Diamonds", img: "Card-Images/2D.jpg" }
-]
+
+function Card (name, value, suit, img) {
+    this.name = name;
+    this.value = value;
+    this.suit = suit;
+    this.img = img;
+};
+
+var suit = "";
+var name = "";
+var img = "";
+var imgAcro = "";
+var path = "Card-Images/";
+
+function Deck () {
+    this.deck = [];
+    for (var j = 0; j <= 3; j++) {
+        if (j == 0) {
+            suit = "hearts";
+            imgAcro = "H.jpg";
+        }
+        else if (j == 1) {
+            suit = "spades";
+            imgAcro = "S.jpg";
+        }
+        else if (j == 2) {
+            suit = "clubs";
+            imgAcro = "C.jpg";
+        }
+        else if (j == 3) {
+            suit = "diamonds";
+            imgAcro = "D.jpg";
+        }
+        for (var i = 1; i <= 13; i++) {
+            var value = i;
+            img = path + i.toString() + imgAcro;
+            switch (i) {
+                case (1):
+                    name = "Ace";
+                    value = 13;
+                    img = path + "A" + imgAcro;
+                    break;
+                case (2):
+                    name = "Two";
+                    break;
+                case (3):
+                    name = "Three";
+                    break;
+                case (4):
+                    name = "Four";
+                    break;
+                case (5):
+                    name = "Five";
+                    break;
+                case (6):
+                    name = "Six";
+                    break;
+                case (7):
+                    name = "Seven";
+                    break;
+                case (8):
+                    name = "Eight";
+                    break;
+                case (9):
+                    name = "Nine";
+                    break;
+                case (10):
+                    name = "Ten";
+                    break;
+                case (11):
+                    name = "Jack";
+                    value = 10;
+                    img = path + "J" + imgAcro;
+                    break;
+                case (12):
+                    name = "Queen";
+                    value = 10;
+                    img = path + "Q" + imgAcro;
+                    break;
+                case (13):
+                    name = "King";
+                    value = 10;
+                    img = path + "K" + imgAcro;
+                    break;
+                default:
+                    break;
+            }
+            this.deck.push(new card(name, value, suit, img));
+        };
+    };
+   return this.deck; 
+};
+
+var deckOne = new Deck();
+console.log(newDeck);
+
+
+
 
 // This function returns the images from the array 'deck' to be used in the game.
 function selectCard() {
@@ -73,9 +117,18 @@ function selectCard() {
 
 
 
-document.getElementById('deal-button').addEventListener('click', function() {
-    var imgPlayer = document.getElementById("playerCardOne");
-    imgPlayer.src = selectCard();
+document.getElementById("deal-button").addEventListener("click", function() {
+    document.getElementById("dealerCardOne").src = selectCard();
+    document.getElementById("dealerCardTwo").src = selectCard();
+    document.getElementById("playerCardOne").src = selectCard();
+    document.getElementById("playerCardTwo").src = selectCard();
     console.log(selectCard.selectCards);
+});
+
+document.getElementById("hit-button").addEventListener("click", function() {
+    var hitCard = document.createElement('img');
+    // hitCard.setAttribute("src", selectCard().toString());
+    document.getElementById("player-hand").appendChild(hitCard);
+    hitCard.src = selectCard();
 });
 
