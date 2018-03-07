@@ -151,9 +151,8 @@ let playerHand = new Hand(deckOne);
 // console.log(dealerHand);
 // console.log(playerHand);
 // console.log(deckOne);
-
-getPoints(dealerHand, "value");
-getPoints(playerHand, "value");
+let dealerPoints = getPoints(dealerHand, "value");
+let playerPoints = getPoints(playerHand, "value");
 
 
 document.getElementById("deal-button").addEventListener("click", function() {
@@ -161,28 +160,59 @@ document.getElementById("deal-button").addEventListener("click", function() {
     document.getElementById("dealerCardTwo").src = dealerHand[1].img;
     document.getElementById("playerCardOne").src = playerHand[0].img;
     document.getElementById("playerCardTwo").src = playerHand[1].img;
+    while (dealerPoints < 17) {
+        Hit(dealerHand, deckOne);
+        var hitCardImage = document.createElement('img');
+        hitCardImage.classList.add("hitCard");
+        hitCardImage.setAttribute("src", dealerHand[dealerHand.length -1].img.toString());
+        document.getElementById("dealer-hand").appendChild(hitCardImage);
+        dealerPoints = getPoints(dealerHand, "value");
+    };
+    if (dealerPoints > 21) {
+        console.log("You win!");
+    }
 });
 
 document.getElementById("hit-button").addEventListener("click", function() {
     Hit(playerHand, deckOne);
+    getPoints(playerHand, "value");
     // console.log(playerHand);
     var hitCardImage = document.createElement('img');
     hitCardImage.classList.add("hitCard");
     hitCardImage.setAttribute("src", playerHand[playerHand.length -1].img.toString());
     document.getElementById("player-hand").appendChild(hitCardImage);
+    playerPoints = getPoints(playerHand, "value");
+    if (playerPoints > 21) {
+        console.log("You lose!");
+    }
 });
 
+document.getElementById("stand-button").addEventListener("click", function() {
+    if (playerPoints > dealerPoints) {
+        console.log("You win!");
+    }
+    else {
+        console.log("You lose!");
+    }
+    });
 
 
 document.getElementById("restart-button").addEventListener("click", function() {
     // var removedCards = document.getElementsByClassName("hitCard");
     // console.log(removedCards);
-    var parentElement = document.getElementById("player-hand");
-    // console.log(parentElement);
-    while (parentElement.childNodes.length > 3) {
-        var lastChild = parentElement.lastChild;
-        parentElement.removeChild(lastChild);
+    var parentPlayerElement = document.getElementById("player-hand");
+    // console.log parentPlayerElement);
+    while (parentPlayerElement.childNodes.length > 3) {
+        var lastChild = parentPlayerElement.lastChild;
+     parentPlayerElement.removeChild(lastChild);
     }
+    var parentDealerElement = document.getElementById("dealer-hand");
+    // console.log parentPlayerElement);
+    while (parentDealerElement.childNodes.length > 3) {
+        var lastChild = parentDealerElement.lastChild;
+     parentDealerElement.removeChild(lastChild);
+    }
+ 
     document.getElementById("dealerCardTwo").src = "Card-Images/Gray_back.jpg";
     document.getElementById("playerCardOne").src = "Card-Images/Gray_back.jpg";
     document.getElementById("playerCardTwo").src = "Card-Images/Gray_back.jpg";
