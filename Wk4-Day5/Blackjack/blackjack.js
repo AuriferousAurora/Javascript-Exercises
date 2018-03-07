@@ -111,11 +111,18 @@ function Shuffle(selectedDeck) {
     return selectedDeck;
 };
 
-//Instantiation of a new deck of cards.
-
-var deckOne = new Deck();
-
-// console.log(deckOne);
+function add(a, b) {
+    return (a + b);
+}
+function getPoints(selectedHand, value) {
+    var removePoints = [];
+    for (var i = 0; i < selectedHand.length; i++) {
+        removePoints.push(selectedHand[i][value]);
+    }
+    var sumPoints = removePoints.reduce(add, 0);
+    console.log(sumPoints);
+    return sumPoints;
+};
 
 //Draws two cards from whatever deck is passed as a parameter and returns it as an array.
 
@@ -130,6 +137,13 @@ function Hit(selectedHand, selectedDeck) {
     selectedHand.push(hitCard);
 };
 
+
+//Instantiation of a new deck of cards.
+
+var deckOne = new Deck();
+
+// console.log(deckOne);
+
 //Instantion of two new hands consisting of two cards each. Cards objects are removed from the deck passed as a parameter in the Hand function.
 let dealerHand = new Hand(deckOne);
 let playerHand = new Hand(deckOne);
@@ -137,6 +151,9 @@ let playerHand = new Hand(deckOne);
 // console.log(dealerHand);
 // console.log(playerHand);
 // console.log(deckOne);
+
+getPoints(dealerHand, "value");
+getPoints(playerHand, "value");
 
 
 document.getElementById("deal-button").addEventListener("click", function() {
@@ -170,10 +187,7 @@ document.getElementById("restart-button").addEventListener("click", function() {
     document.getElementById("playerCardOne").src = "Card-Images/Gray_back.jpg";
     document.getElementById("playerCardTwo").src = "Card-Images/Gray_back.jpg";
     deckOne = new Deck();
-    
-    
     dealerHand = new Hand(deckOne);
-  
     playerHand = new Hand(deckOne);
     
 });
