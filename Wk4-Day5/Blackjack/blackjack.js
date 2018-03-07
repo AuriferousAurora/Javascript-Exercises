@@ -93,14 +93,39 @@ function Deck() {
    return this.deck; 
 };
 
+function Restart(selectedDeck) {
+    selected.Deck.push(playerHand);
+    selected.Deck.push(dealerHand);
+};
+
+function Shuffle(selectedDeck) {
+    var currentIndex = selectedDeck.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+        randomIndex = Math.floor( Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = selectedDeck[currentIndex];
+        selectedDeck[currentIndex] = selectedDeck[randomIndex];
+        selectedDeck[randomIndex] = temporaryValue;
+    }
+    return selectedDeck;
+};
+
 //Instantiation of a new deck of cards.
 var deckOne = new Deck();
+Shuffle(deckOne);
 // console.log(deckOne);
 
 //Draws two cards from whatever deck is passed as a parameter and returns it as an array.
 function Hand(selectedDeck) {
+    // Splice removes a certain number of objects (2) from an array beginning at a certain index (0) and returns a new array containing those objects without deleting the old array and its remaining objects. 
     this.selectedDeck = selectedDeck.splice(0, 2);
     return this.selectedDeck;
+};
+
+function Hit(selectedHand, selectedDeck) {
+    var hitCard = selectedDeck.shift();
+    selectedHand.push(hitCard);
 };
 
 //Instantion of two new hands consisting of two cards each. Cards objects are removed from the deck passed as a parameter in the Hand function.
@@ -109,13 +134,7 @@ var playerHand = new Hand(deckOne);
 
 console.log(dealerHand);
 console.log(playerHand);
-
-
-
-
-
-
-// var card = Math.floor(Math.random()*(deck.length - 1));
+console.log(deckOne);
 
 
 document.getElementById("deal-button").addEventListener("click", function() {
@@ -125,10 +144,17 @@ document.getElementById("deal-button").addEventListener("click", function() {
     document.getElementById("playerCardTwo").src = playerHand[1].img;
 });
 
-// document.getElementById("hit-button").addEventListener("click", function() {
-//     var hitCard = document.createElement('img');
-//     // hitCard.setAttribute("src", selectCard().toString());
-//     document.getElementById("player-hand").appendChild(hitCard);
-//     hitCard.src = selectCard();
-// });
+document.getElementById("hit-button").addEventListener("click", function() {
+    Hit(playerHand, deckOne);
+    console.log(playerHand);
+    var hitCardImage = document.createElement('img');
+    hitCardImage.setAttribute("src", playerHand[playerHand.length -1].img.toString());
+    document.getElementById("player-hand").appendChild(hitCardImage);
+});
+
+document.getElementById("restart-button").addEventListener("click", function() {
+    Restart(deckOne);
+    Shuffle(deckOne);
+    
+});
 

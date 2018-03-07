@@ -29,9 +29,10 @@ div {
     border: 2px solid red;
 }
 
-.buttonBox {
+.buttonBox, .restartBox {
     display: flex;
     justify-content: center;
+    margin-bottom: 15px;
 }
 
 .buttons {
