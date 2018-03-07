@@ -40,7 +40,7 @@ function Deck() {
             switch (i) {
                 case (1):
                     name = "Ace";
-                    value = 13;
+                    value = 11;
                     img = path + "A" + imgAcro;
                     break;
                 case (2):
@@ -155,6 +155,34 @@ let dealerPoints = getPoints(dealerHand, "value");
 let playerPoints = getPoints(playerHand, "value");
 
 
+
+function Win () {
+    var background = document.createElement('div');
+    background.style.height = "150px";
+    background.style.width = "auto";
+    background.style.backgroundColor = "lightblue";
+    var text = document.createElement('h1');
+    text.style.color = "black";
+    text.textContent = "You Win!"
+    document.body.appendChild(background);
+    background.appendChild(text);
+    console.log("Wello");
+    
+};
+function Lose () {
+    var background = document.createElement('div');
+    background.style.height = "150px";
+    background.style.width = "auto";
+    background.style.backgroundColor = "red";
+    var text = document.createElement('h1');
+    text.style.color = "black";
+    text.textContent = "You Lose!"
+    document.body.appendChild(background);      
+    background.appendChild(text);
+    console.log("Lello");
+    
+};
+
 document.getElementById("deal-button").addEventListener("click", function() {
     // document.getElementById("dealerCardOne").src = dealerHand[0].img;
     document.getElementById("dealerCardTwo").src = dealerHand[1].img;
@@ -169,7 +197,7 @@ document.getElementById("deal-button").addEventListener("click", function() {
         dealerPoints = getPoints(dealerHand, "value");
     };
     if (dealerPoints > 21) {
-        console.log("You win!");
+        Win();
     }
 });
 
@@ -183,16 +211,17 @@ document.getElementById("hit-button").addEventListener("click", function() {
     document.getElementById("player-hand").appendChild(hitCardImage);
     playerPoints = getPoints(playerHand, "value");
     if (playerPoints > 21) {
-        console.log("You lose!");
+        Lose();
     }
 });
 
 document.getElementById("stand-button").addEventListener("click", function() {
+    document.getElementById("dealerCardOne").src = dealerHand[0].img;
     if (playerPoints > dealerPoints) {
-        console.log("You win!");
+        Win();
     }
     else {
-        console.log("You lose!");
+        Lose();
     }
     });
 
@@ -212,7 +241,7 @@ document.getElementById("restart-button").addEventListener("click", function() {
         var lastChild = parentDealerElement.lastChild;
      parentDealerElement.removeChild(lastChild);
     }
- 
+    document.getElementById("dealerCardOne").src = "Card-Images/Gray_back.jpg";
     document.getElementById("dealerCardTwo").src = "Card-Images/Gray_back.jpg";
     document.getElementById("playerCardOne").src = "Card-Images/Gray_back.jpg";
     document.getElementById("playerCardTwo").src = "Card-Images/Gray_back.jpg";
@@ -221,3 +250,5 @@ document.getElementById("restart-button").addEventListener("click", function() {
     playerHand = new Hand(deckOne);
     
 });
+
+
