@@ -155,14 +155,8 @@ let dealerPoints = getPoints(dealerHand, "value");
 let playerPoints = getPoints(playerHand, "value");
 
 
-
 function Win () {
-    var background = document.createElement('div');
-    background.style.height = "150px";
-    background.style.width = "auto";
     background.style.backgroundColor = "lightblue";
-    var text = document.createElement('h1');
-    text.style.color = "black";
     text.textContent = "You Win!"
     document.body.appendChild(background);
     background.appendChild(text);
@@ -170,18 +164,19 @@ function Win () {
     
 };
 function Lose () {
-    var background = document.createElement('div');
-    background.style.height = "150px";
-    background.style.width = "auto";
     background.style.backgroundColor = "red";
-    var text = document.createElement('h1');
-    text.style.color = "black";
     text.textContent = "You Lose!"
     document.body.appendChild(background);      
     background.appendChild(text);
     console.log("Lello");
     
 };
+
+var background = document.createElement('div');
+background.style.height = "150px";
+background.style.width = "auto";
+var text = document.createElement('h1');
+text.style.color = "black";
 
 document.getElementById("deal-button").addEventListener("click", function() {
     // document.getElementById("dealerCardOne").src = dealerHand[0].img;
@@ -248,7 +243,7 @@ document.getElementById("restart-button").addEventListener("click", function() {
     deckOne = new Deck();
     dealerHand = new Hand(deckOne);
     playerHand = new Hand(deckOne);
-    
+    document.body.removeChild(background);
 });
 
 
