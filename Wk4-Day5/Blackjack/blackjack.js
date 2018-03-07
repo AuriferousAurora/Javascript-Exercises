@@ -1,4 +1,4 @@
-
+//Card constructor: builds object with name, value, suit, and an image url string.
 function Card(name, value, suit, img) {
     this.name = name;
     this.value = value;
@@ -6,6 +6,7 @@ function Card(name, value, suit, img) {
     this.img = img;
 };
 
+//Variables allow for Deck constructor to build a deck.
 var name = "";
 var suit = "";
 var img = "";
@@ -93,11 +94,13 @@ function Deck() {
    return this.deck; 
 };
 
+//Pushes whatever cards are in the player and dealer Hand arrays back to the original deck.
 function Restart(selectedDeck) {
-    selected.Deck.push(playerHand);
-    selected.Deck.push(dealerHand);
+    selectedDeck.push(playerHand);
+    selectedDeck.push(dealerHand);
 };
 
+//Shuffles whatever decka array is passed as a parameter and returns the array.
 function Shuffle(selectedDeck) {
     var currentIndex = selectedDeck.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
@@ -148,13 +151,28 @@ document.getElementById("hit-button").addEventListener("click", function() {
     Hit(playerHand, deckOne);
     console.log(playerHand);
     var hitCardImage = document.createElement('img');
+    hitCardImage.classList.add("hitCard");
     hitCardImage.setAttribute("src", playerHand[playerHand.length -1].img.toString());
     document.getElementById("player-hand").appendChild(hitCardImage);
 });
 
+
+
 document.getElementById("restart-button").addEventListener("click", function() {
-    Restart(deckOne);
-    Shuffle(deckOne);
-    
+    // var removedCards = document.getElementsByClassName("hitCard");
+    // console.log(removedCards);
+    var parentElement = document.getElementById("player-hand");
+    // console.log(parentElement);
+        while (parentElement.childNodes.length > 3) {
+            var lastChild = parentElement.lastChild;
+            parentElement.removeChild(lastChild);
+            }
+        
+    // var cardBackOne = document.createElement('img');
+    // cardBackOne.setAttribute("src", "Card-Images/Gray_back.jpg");
+    // var cardBackTwo = document.createElement('img');
+    // cardBackTwo.setAttribute("src", "Card-Images/Gray_back.jpg");
+    // var bothCardBacks = cardBackOne + cardBackTwo;
+    // document.getElementById("player-hand").appendChild(bothCardBacks);
 });
 
