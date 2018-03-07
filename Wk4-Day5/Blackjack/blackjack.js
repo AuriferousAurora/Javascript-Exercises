@@ -91,16 +91,13 @@ function Deck() {
             this.deck.push(new Card(name, value, suit, img));
         };
     };
-   return this.deck; 
+    //Shuffles deck.
+    this.deck = Shuffle(this.deck);
+    console.log(this.deck);
+    return this.deck;
 };
 
-//Pushes whatever cards are in the player and dealer Hand arrays back to the original deck.
-function Restart(selectedDeck) {
-    selectedDeck.push(playerHand);
-    selectedDeck.push(dealerHand);
-};
-
-//Shuffles whatever decka array is passed as a parameter and returns the array.
+//Shuffles whatever deck array is passed as a parameter and returns the array.
 function Shuffle(selectedDeck) {
     var currentIndex = selectedDeck.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
@@ -115,11 +112,13 @@ function Shuffle(selectedDeck) {
 };
 
 //Instantiation of a new deck of cards.
+
 var deckOne = new Deck();
-Shuffle(deckOne);
+
 // console.log(deckOne);
 
 //Draws two cards from whatever deck is passed as a parameter and returns it as an array.
+
 function Hand(selectedDeck) {
     // Splice removes a certain number of objects (2) from an array beginning at a certain index (0) and returns a new array containing those objects without deleting the old array and its remaining objects. 
     this.selectedDeck = selectedDeck.splice(0, 2);
@@ -132,12 +131,12 @@ function Hit(selectedHand, selectedDeck) {
 };
 
 //Instantion of two new hands consisting of two cards each. Cards objects are removed from the deck passed as a parameter in the Hand function.
-var dealerHand = new Hand(deckOne);
-var playerHand = new Hand(deckOne);
+let dealerHand = new Hand(deckOne);
+let playerHand = new Hand(deckOne);
 
-console.log(dealerHand);
-console.log(playerHand);
-console.log(deckOne);
+// console.log(dealerHand);
+// console.log(playerHand);
+// console.log(deckOne);
 
 
 document.getElementById("deal-button").addEventListener("click", function() {
@@ -149,7 +148,7 @@ document.getElementById("deal-button").addEventListener("click", function() {
 
 document.getElementById("hit-button").addEventListener("click", function() {
     Hit(playerHand, deckOne);
-    console.log(playerHand);
+    // console.log(playerHand);
     var hitCardImage = document.createElement('img');
     hitCardImage.classList.add("hitCard");
     hitCardImage.setAttribute("src", playerHand[playerHand.length -1].img.toString());
@@ -163,16 +162,18 @@ document.getElementById("restart-button").addEventListener("click", function() {
     // console.log(removedCards);
     var parentElement = document.getElementById("player-hand");
     // console.log(parentElement);
-        while (parentElement.childNodes.length > 3) {
-            var lastChild = parentElement.lastChild;
-            parentElement.removeChild(lastChild);
-            }
-        
-    // var cardBackOne = document.createElement('img');
-    // cardBackOne.setAttribute("src", "Card-Images/Gray_back.jpg");
-    // var cardBackTwo = document.createElement('img');
-    // cardBackTwo.setAttribute("src", "Card-Images/Gray_back.jpg");
-    // var bothCardBacks = cardBackOne + cardBackTwo;
-    // document.getElementById("player-hand").appendChild(bothCardBacks);
+    while (parentElement.childNodes.length > 3) {
+        var lastChild = parentElement.lastChild;
+        parentElement.removeChild(lastChild);
+    }
+    document.getElementById("dealerCardTwo").src = "Card-Images/Gray_back.jpg";
+    document.getElementById("playerCardOne").src = "Card-Images/Gray_back.jpg";
+    document.getElementById("playerCardTwo").src = "Card-Images/Gray_back.jpg";
+    deckOne = new Deck();
+    
+    
+    dealerHand = new Hand(deckOne);
+  
+    playerHand = new Hand(deckOne);
+    
 });
-
