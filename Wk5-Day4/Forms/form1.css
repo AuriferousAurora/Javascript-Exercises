@@ -1,0 +1,41 @@
+body{
+    background-color: lightgray;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.login-page {
+    background-color: dodgerblue;
+    height: 800px;
+    width: 600px;
+    padding: 30px;
+}
+
+.image {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 4em;
+}
+
+.image img {
+    display: block;
+}
+
+.image h1 {
+    display: block;
+}
+
+#button {
+    margin-top: 10px;
+    background-color: #78C0E0;
+    border: 2px solid white;
+    float: right;
+}

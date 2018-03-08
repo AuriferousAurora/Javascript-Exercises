@@ -1,0 +1,42 @@
+<form onsubmit="myFunction()">
+        <imput type="text" placeholder="email" />
+        <input type="radio" />
+        <input type="checkbox" />
+        <input type="password" />
+
+    <select>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="audi">Audi</option>
+    </select>
+
+    <textarea rows="4" cols="50"></textarea>
+
+    <field>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+    </field>
+
+    <button type="submit">Done</button>
+
+
+
+</form>
+
+<script>
+    (function () {
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            var elements = this.elements; // Collects all of the elements in form.
+            
+            var userName = elements.userName.value(); // Value of username.
+            var emailAddress = elements.emailAddress.value(); // Value of email address.
+            
+        }, false);
+    })
+    // function myFunction() {
+    //     alert("Form submitted!");
+    // };
+</script>
