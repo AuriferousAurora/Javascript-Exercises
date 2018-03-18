@@ -1,0 +1,59 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-image: url('./Images/Miami-Copy.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+.title {
+    background-color: rgba(119, 163, 175, 0.75);
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 47%;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: white;
+    width: 100%;
+    height: 20%;
+}
+
+.name h1 {
+    font-family: 'Lato', serif;
+    font-size: 3.5em;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 70%;
+}
+
+.image img {
+    border: 3px solid white;
+    min-width: 200px;
+    width: auto;
+    height: 65%;
+}
+
