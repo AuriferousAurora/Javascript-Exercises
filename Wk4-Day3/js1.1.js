@@ -169,8 +169,10 @@ picContainer.style.width = "86.5%";
 picContainer.style.height = "900px";
 picContainer.style.marginTop = "30px";
 picContainer.style.marginLeft = "7%";
-picContainer.style.marginRight = "10%";
+picContainer.style.marginRight = "12%";
 picContainer.style.paddingRight = "0px";
+
+picContainer.style.border = "3px solid red";
 
 picContainer.style.backgroundColor = "black";
 
@@ -181,7 +183,10 @@ firstRow.classList.add('row');
 picContainer.appendChild(firstRow);
 firstRow.style.backgroundColor = "rgba(0, 255, 0, 0.5)";
 firstRow.style.height = "300px";
-firstRow.style.width = "100%";
+firstRow.style.width = "101.5%";
+firstRow.style.marginRight = "0px";
+
+firstRow.style.border = "3px solid red";
 
 /* Second Row */
 
@@ -190,7 +195,7 @@ secondRow.classList.add('row');
 picContainer.appendChild(secondRow);
 secondRow.style.backgroundColor = "rgba(0, 0, 255, 0.5)";
 secondRow.style.height = "300px";
-secondRow.style.width = "100%";
+secondRow.style.width = "101.5%";
 
 /* Third Row */
 
@@ -199,7 +204,7 @@ thirdRow.classList.add('row');
 picContainer.appendChild(thirdRow);
 thirdRow.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
 thirdRow.style.height = "300px";
-thirdRow.style.width = "100%";
+thirdRow.style.width = "101.5%";
 
 /* Footer */
 

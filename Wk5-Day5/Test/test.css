@@ -1,0 +1,12 @@
+div {
+    height: 200px;
+    width: 100%;
+    background-color: blue;
+}
+
+
+
+
+body > div {
+    background-color: green;
+}

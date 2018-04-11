@@ -151,8 +151,10 @@ let playerHand = new Hand(deckOne);
 // console.log(dealerHand);
 // console.log(playerHand);
 // console.log(deckOne);
-let dealerPoints = getPoints(dealerHand, "value");
-let playerPoints = getPoints(playerHand, "value");
+console.log("Dealer Points");
+var dealerPoints = getPoints(dealerHand, "value");
+console.log("Player Points");
+var playerPoints = getPoints(playerHand, "value");
 
 
 function Win () {
@@ -189,6 +191,7 @@ document.getElementById("deal-button").addEventListener("click", function() {
         hitCardImage.classList.add("hitCard");
         hitCardImage.setAttribute("src", dealerHand[dealerHand.length -1].img.toString());
         document.getElementById("dealer-hand").appendChild(hitCardImage);
+        console.log("Dealer Points");
         dealerPoints = getPoints(dealerHand, "value");
     };
     if (dealerPoints > 21) {
@@ -212,7 +215,13 @@ document.getElementById("hit-button").addEventListener("click", function() {
 
 document.getElementById("stand-button").addEventListener("click", function() {
     document.getElementById("dealerCardOne").src = dealerHand[0].img;
-    if (playerPoints > dealerPoints) {
+    console.log("Player Points and Hand");
+    console.log(playerPoints);
+    console.log(playerHand);
+    console.log("Dealer Points and Hand");
+    console.log(dealerPoints);
+    console.log(dealerHand);
+    if (playerPoints > dealerPoints && playerPoints <= 21) {
         Win();
     }
     else {
