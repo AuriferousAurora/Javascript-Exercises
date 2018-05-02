@@ -1,22 +1,11 @@
-function letterChanges (input) {
-    var alpha = 'abcdefghijklmnopqrstuvwxyz';
-    var vowels = 'aeiou';
-    inputString = input.split('');
-    newString = '';
-
-    for (let i = 0; i < inputString.length; i++) {
-        
-        if (alpha.includes(inputString[i])) {
-
-            newLetter = inputString[i + 1];
-            newString += newLetter;
-        } else {
-            console.log('not an alpha')
-        }
-    }
-    console.log(newString);
-    
+function multiply (a, b) {
+    return (a * b);
 }
 
+array = [1, 2, 3, 4, 5];
 
-letterChanges('hello*3');
+array.reduce(function(accumulator, currentVal) {
+    console.log(multiply(accumulator, currentVal));
+    return multiply(accumulator, currentVal);
+});
+
